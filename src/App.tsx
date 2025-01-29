@@ -1,14 +1,14 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import Todos from './components/Todos/Todos'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Todos from "./components/Todos/Todos";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Todos />
     </QueryClientProvider>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,17 +1,18 @@
-import { useCreateTodo } from '@/hooks/useCreateTodo'
-import { useGetTodos } from '@/hooks/useGetTodos'
-import { useState } from 'react'
+import { useCreateTodo } from "@/hooks/useCreateTodo";
+import { useGetTodos } from "@/hooks/useGetTodos";
+import { useState } from "react";
 
 const Todos = () => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState("");
 
-  const { data: todos } = useGetTodos()
-  const { mutateAsync: createTodo, isPending: isCreatingTodo } = useCreateTodo()
+  const { data: todos } = useGetTodos();
+  const { mutateAsync: createTodo, isPending: isCreatingTodo } =
+    useCreateTodo();
 
   const handleAddTodo = async () => {
-    await createTodo(value)
-    setValue('')
-  }
+    await createTodo(value);
+    setValue("");
+  };
 
   return (
     <div className="todo-container">
@@ -20,7 +21,7 @@ const Todos = () => {
         <input
           value={value}
           onChange={(e) => {
-            setValue(e.target.value)
+            setValue(e.target.value);
           }}
         />
         <button onClick={handleAddTodo} disabled={!value || isCreatingTodo}>
@@ -35,7 +36,7 @@ const Todos = () => {
         </ul>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Todos
+export default Todos;
